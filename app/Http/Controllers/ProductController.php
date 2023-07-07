@@ -12,10 +12,18 @@ class ProductController extends Controller
         return "In ProductController";
     }
 
-    // extragerea tuturor produselor si livrarea acestora 
+    // extragerea tuturor produselor si returnarea acestora
     public function getAll(Request $request)
-{
+    {
 
-    return Product::all();
+        return Product::all();
+    }
+
+    // extragerea produselor dintr-o anumita categorie
+    public function getProducts($categoryId)
+    {
+
+        return Product::where('category_id', 'like', '%' . $categoryId . '%')->get();
+    }
+
 }
-};

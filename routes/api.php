@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rutele pentru produse
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'getAll']);
+Route::get('/products/{categoryId}', [App\Http\Controllers\ProductController::class, 'getProducts']);
+
+// Rutele pentru categorii
+Route::get('/category', [App\Http\Controllers\CategoryController::class, 'getAll']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

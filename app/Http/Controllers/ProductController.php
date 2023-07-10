@@ -26,4 +26,12 @@ class ProductController extends Controller
         return Product::where('category_id', 'like', '%' . $categoryId . '%')->get();
     }
 
+
+    // extragerea produselor dintr-o anumita categorie
+    public function getProduct($productId)
+    {
+
+        return Product::where('id', $productId)->get();
+    }
+
 }
